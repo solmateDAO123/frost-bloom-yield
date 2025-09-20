@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic Private Farming Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Core dark theme */
+    --background: 220 27% 4%;
+    --foreground: 120 100% 95%;
+
+    /* Card system with glassmorphism */
+    --card: 220 27% 6%;
+    --card-foreground: 120 100% 95%;
+    --card-border: 120 40% 20%;
+
+    --popover: 220 27% 8%;
+    --popover-foreground: 120 100% 95%;
+
+    /* Neon plant green primary */
+    --primary: 120 100% 50%;
+    --primary-foreground: 220 27% 4%;
+    --primary-glow: 120 100% 60%;
+
+    /* Cyber blue secondary */
+    --secondary: 200 100% 50%;
+    --secondary-foreground: 220 27% 4%;
+    --secondary-glow: 200 100% 60%;
+
+    /* Encrypted/muted states */
+    --muted: 220 15% 15%;
+    --muted-foreground: 120 20% 60%;
+    --encrypted: 300 50% 40%;
+    --encrypted-foreground: 300 100% 95%;
+
+    /* Accent colors for highlights */
+    --accent: 60 100% 70%;
+    --accent-foreground: 220 27% 4%;
+
+    /* Destructive for warnings */
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 95%;
+
+    /* Borders and inputs */
+    --border: 120 30% 20%;
+    --input: 220 27% 8%;
+    --ring: 120 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(120 100% 40%), hsl(120 100% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(200 100% 40%), hsl(200 100% 60%));
+    --gradient-encrypted: linear-gradient(135deg, hsl(300 50% 30%), hsl(300 50% 50%));
+    --gradient-cyber: linear-gradient(135deg, hsl(220 27% 6%), hsl(200 100% 10%));
+    --gradient-harvest: linear-gradient(135deg, hsl(60 100% 50%), hsl(120 100% 50%));
+
+    /* Shadows with glow effects */
+    --shadow-neon: 0 0 20px hsl(120 100% 50% / 0.3);
+    --shadow-cyber: 0 0 20px hsl(200 100% 50% / 0.3);
+    --shadow-encrypted: 0 0 15px hsl(300 50% 40% / 0.4);
+    --shadow-card: 0 8px 32px hsl(220 27% 2% / 0.6);
+
+    /* Animation timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card style */
+  .glass-card {
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Neon glow effects */
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+  }
+
+  .cyber-glow {
+    box-shadow: var(--shadow-cyber);
+  }
+
+  .encrypted-glow {
+    box-shadow: var(--shadow-encrypted);
+  }
+
+  /* Encrypted text effect */
+  .encrypted-text {
+    background: var(--gradient-encrypted);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+  }
+
+  .encrypted-text::after {
+    content: '████████';
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: decrypt 2s ease-in-out infinite alternate;
+  }
+
+  /* Plant growing animation */
+  .plant-grow {
+    animation: growUp 3s ease-out infinite;
+    transform-origin: bottom center;
+  }
+
+  /* Harvest glow animation */
+  .harvest-ready {
+    animation: harvestGlow 2s ease-in-out infinite alternate;
+  }
+
+  /* Floating animation for UI elements */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  /* Custom gradient utilities */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .bg-gradient-encrypted {
+    background: var(--gradient-encrypted);
+  }
+
+  .bg-gradient-cyber {
+    background: var(--gradient-cyber);
+  }
+
+  .bg-gradient-harvest {
+    background: var(--gradient-harvest);
+  }
+
+  /* Transition utilities */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+}
+
+/* Keyframe animations */
+@keyframes decrypt {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 0; }
+}
+
+@keyframes growUp {
+  0% { 
+    transform: scaleY(0.8) rotate(-2deg);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: scaleY(1.1) rotate(1deg);
+    opacity: 1;
+  }
+  100% { 
+    transform: scaleY(1) rotate(-1deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes harvestGlow {
+  0% { 
+    box-shadow: 0 0 20px hsl(120 100% 50% / 0.3);
+    transform: scale(1);
+  }
+  100% { 
+    box-shadow: 0 0 40px hsl(60 100% 50% / 0.6);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% { 
+    transform: translateY(-10px) rotate(1deg);
+  }
+  66% { 
+    transform: translateY(-5px) rotate(-1deg);
+  }
+}
